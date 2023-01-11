@@ -6,10 +6,10 @@ export default {
     data() {
         return {
             pets: [
-                {id: 1, species: 'dog'},
-                {id: 2, species: 'cat'},
-                {id: 3, species: 'bird'},
-                {id: 4, species: 'dog'},
+                {id: 1, species: 'dog', habit: 'Brush Teeth'},
+                {id: 2, species: 'cat', habit: 'Shower'},
+                {id: 3, species: 'bird', habit: 'Jog'},
+                {id: 4, species: 'dog', habit: 'Practice Instrument'},
             ],
         };
     },
@@ -20,6 +20,6 @@ export default {
 </script>
 <template>
     <div id="pet-place">
-        <HabitPet v-for="pet in this.pets" :key="pet.id" :species="pet.species"></HabitPet>
+        <HabitPet v-for="pet in this.pets" :key="pet.id" :species="pet.species" :habit="pet.habit"></HabitPet>
     </div>
 </template>

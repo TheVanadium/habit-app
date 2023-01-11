@@ -3,6 +3,7 @@ export default {
     name: "HabitPet",
     props : {
         species : String,
+        habit : String,
     },
     data () {
         return {  
@@ -49,12 +50,18 @@ export default {
 </script>
 
 <template>
-    <img v-on:click="togglePetGroomState()" :src="petImageInfo.src" :alt="petImageInfo.alt" class="habit-pet">
+    <div class="habit-pet">
+        <img v-on:click="togglePetGroomState()" :src="petImageInfo.src" :alt="petImageInfo.alt">
+        <p class="habit-description"> {{ habit }} </p>
+    </div>
 </template>
 
 <style>
-.habit-pet {
+.habit-pet img {
     width: 100px;
     height: 100px;
+}
+.habit-description {
+    text-align: center;
 }
 </style>
