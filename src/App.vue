@@ -1,41 +1,35 @@
 <script>
 import PetPlace from './components/PetPlace.vue';
 import AddPetButton from './components/AddPetButton.vue';
+import AppHeader from './components/AppHeader.vue';
 
 export default {
   name: 'App',
-  data () {
-    return {
-      msg: 'Habit App!'
-    }
-  },
   components: {
     PetPlace,
     AddPetButton,
+    AppHeader,
   }
 }
 </script>
 
 <template>
   <div id="app">
-      <p id="header">{{ msg }}!</p>
-      <PetPlace></PetPlace>
-      <AddPetButton></AddPetButton>
+    <AppHeader></AppHeader>
+    <PetPlace></PetPlace>
+    <AddPetButton></AddPetButton>
     <router-view></router-view>
   </div>
 </template>
 
 <style>
 :root {
+  margin: 0;
   width: 100vw;
   height: 100vh;
 }
 #header {
   height: 10vh;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 #pet-place {
   height: 80vh;
