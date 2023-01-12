@@ -11,5 +11,7 @@ export default {
 }
 </script>
 <template>
-    <button v-on:click=(openAdoptMenu)  id="adopt-button">Add Pet</button>
+    <div id="adopt-button">
+        <button v-on:click=(openAdoptMenu)>Adopt</button>
+    </div>
 </template>
