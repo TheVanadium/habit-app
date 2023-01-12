@@ -1,14 +1,27 @@
 <script>
 import PetPlace from './components/PetPlace.vue';
-import AddPetButton from './components/AddPetButton.vue';
+import AdoptButton from './components/AdoptButton.vue';
 import AppHeader from './components/AppHeader.vue';
+import AdoptMenu from './components/AdoptMenu.vue';
 
 export default {
   name: 'App',
+  data () {
+    return {
+      adoptMenuIsVisible: false
+    }
+  },
   components: {
     PetPlace,
-    AddPetButton,
+    AdoptButton,
     AppHeader,
+    AdoptMenu,
+  },
+  methods: {
+    toggleAdoptMenuVisibility() {
+      this.adoptMenuIsVisible = !this.adoptMenuIsVisible
+      console.log("toggleAdoptMenuVisibility")
+    }
   }
 }
 </script>
@@ -17,8 +30,8 @@ export default {
   <div id="app">
     <AppHeader></AppHeader>
     <PetPlace></PetPlace>
-    <AddPetButton></AddPetButton>
-    <router-view></router-view>
+    <AdoptButton @openAdoptMenu="toggleAdoptMenuVisibility"></AdoptButton>
+    <AdoptMenu :style="{ visibility: (adoptMenuIsVisible ? 'visible': 'hidden')}"  @closeAdoptMenu="toggleAdoptMenuVisibility"></AdoptMenu>
   </div>
 </template>
 
@@ -59,7 +72,7 @@ time, mark, audio, video {
   justify-content: center;
   align-items: center;
 }
-#add-pet-button {
+#adopt-button {
   height: 10vh;
   width: 100vw;
   display: flex;
