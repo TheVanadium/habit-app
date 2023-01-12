@@ -3,12 +3,15 @@ import PetPlace from './components/PetPlace.vue';
 import AdoptButton from './components/AdoptButton.vue';
 import AppHeader from './components/AppHeader.vue';
 import AdoptMenu from './components/AdoptMenu.vue';
+import AppNavigation from './components/AppNavigation.vue';
+import HabitShop from './components/HabitShop.vue';
 
 export default {
   name: 'App',
   data () {
     return {
-      adoptMenuIsVisible: false
+      adoptMenuIsVisible: false,
+      currentPage: "Pets",
     }
   },
   components: {
@@ -16,11 +19,16 @@ export default {
     AdoptButton,
     AppHeader,
     AdoptMenu,
+    AppNavigation,
+    HabitShop,
   },
   methods: {
     toggleAdoptMenuVisibility() {
       this.adoptMenuIsVisible = !this.adoptMenuIsVisible
       console.log("toggleAdoptMenuVisibility")
+    },
+    goToPage(page) {
+      this.currentPage = page
     }
   }
 }
@@ -29,8 +37,13 @@ export default {
 <template>
   <div id="app">
     <AppHeader></AppHeader>
-    <PetPlace></PetPlace>
+    
+    <PetPlace :style="{ visibility: ((currentPage==='Pets') ? 'visible': 'hidden')}"></PetPlace>
+    <HabitShop :style="{ visibility: ((currentPage==='Shop') ? 'visible': 'hidden')}"></HabitShop>
+
     <AdoptButton @openAdoptMenu="toggleAdoptMenuVisibility"></AdoptButton>
+    <AppNavigation @goToPets="goToPage" @goToShop="goToPage"></AppNavigation>
+
     <AdoptMenu :style="{ visibility: (adoptMenuIsVisible ? 'visible': 'hidden')}"  @closeAdoptMenu="toggleAdoptMenuVisibility"></AdoptMenu>
   </div>
 </template>
@@ -63,7 +76,6 @@ time, mark, audio, video {
 }
 
 /* Custom CSS */
-/* flexbox make header 10% of height, pet-place 80%, adopt-button 10% */
 #app {
   height: 100vh;
   display: flex;
@@ -79,6 +91,12 @@ time, mark, audio, video {
   align-items: center;
 }
 #adopt-button {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#navigation {
   flex: 1;
   display: flex;
   justify-content: center;
