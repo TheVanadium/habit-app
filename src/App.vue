@@ -63,18 +63,23 @@ time, mark, audio, video {
 }
 
 /* Custom CSS */
+/* flexbox make header 10% of height, pet-place 80%, adopt-button 10% */
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 #header {
-  height: 10vh;
+  flex: 1;
 }
 #pet-place {
-  height: 80vh;
+  flex: 8;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 #adopt-button {
-  height: 10vh;
-  width: 100vw;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
