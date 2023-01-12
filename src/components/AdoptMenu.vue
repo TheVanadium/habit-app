@@ -4,8 +4,9 @@
         methods: {
         // send click information to parent
         closeAdoptMenu () {
-            this.$emit("closeAdoptMenu")
-            console.log("AdoptMenu Closed")
+            if (!this.mouseInMenu) {
+                this.$emit("closeAdoptMenu")
+            }
         }
     }
     }
@@ -13,7 +14,7 @@
 <template>
     <div id="add-pet-menu">
         <div id="background" v-on:click=(closeAdoptMenu)>
-            <div id="menu">
+            <div id="menu" @mouseover="mouseInMenu=true" @mouseleave="mouseInMenu=false">
 
             </div>
         </div>
