@@ -38,8 +38,8 @@ export default {
   <div id="app">
     <AppHeader></AppHeader>
     
-    <PetPlace :style="{ display: ((currentPage==='Pets') ? 'flex': 'none')}"></PetPlace>
-    <HabitShop :style="{ display: ((currentPage==='Shop') ? 'flex': 'none')}"></HabitShop>
+    <PetPlace class="page" v-bind:id="(this.currentPage==='Pets')?'active-page':''"></PetPlace>
+    <HabitShop class="page" v-bind:id="(this.currentPage==='Shop')?'active-page':''"></HabitShop>
 
     <AdoptButton @openAdoptMenu="toggleAdoptMenuVisibility"></AdoptButton>
     <AppNavigation @goToPets="goToPage" @goToShop="goToPage"></AppNavigation>
@@ -84,15 +84,12 @@ time, mark, audio, video {
 #header {
   flex: 1;
 }
-#pet-place {
-  flex: 8;
+#active-page {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
-#shop {
+.page {
   flex: 8;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 }
