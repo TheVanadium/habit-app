@@ -38,8 +38,8 @@ export default {
   <div id="app">
     <AppHeader></AppHeader>
     
-    <PetPlace :style="{ visibility: ((currentPage==='Pets') ? 'visible': 'hidden')}"></PetPlace>
-    <HabitShop :style="{ visibility: ((currentPage==='Shop') ? 'visible': 'hidden')}"></HabitShop>
+    <PetPlace :style="{ display: ((currentPage==='Pets') ? 'flex': 'none')}"></PetPlace>
+    <HabitShop :style="{ display: ((currentPage==='Shop') ? 'flex': 'none')}"></HabitShop>
 
     <AdoptButton @openAdoptMenu="toggleAdoptMenuVisibility"></AdoptButton>
     <AppNavigation @goToPets="goToPage" @goToShop="goToPage"></AppNavigation>
@@ -85,6 +85,12 @@ time, mark, audio, video {
   flex: 1;
 }
 #pet-place {
+  flex: 8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#shop {
   flex: 8;
   display: flex;
   justify-content: center;
