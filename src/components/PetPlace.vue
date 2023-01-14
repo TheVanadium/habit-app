@@ -20,15 +20,21 @@ export default {
 </script>
 <template>
     <div id="pet-place">
-        <HabitPet v-for="pet in this.pets" :key="pet.id" :species="pet.species" :habit="pet.habit" :id="pet.id" class="habit-pet"></HabitPet>
+        <div id="pet-lineup-area">
+            <HabitPet v-for="pet in this.pets" :key="pet.id" :species="pet.species" :habit="pet.habit" :id="pet.id"></HabitPet>
+        </div>
     </div>
 </template>
 <style>
-/* center habit pets using top and left*/
-.habit-pet {
+#pet-lineup-area {
+    top: 47%;
+    margin: 0;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 </style>

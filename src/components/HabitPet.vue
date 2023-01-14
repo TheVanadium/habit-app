@@ -77,6 +77,10 @@ export default {
 </template>
 
 <style>
+.habit-pet {
+    width: 50px;
+    height: 50px;
+}
 .habit-pet img {
     width: 50px;
     height: 50px;
