@@ -90,8 +90,6 @@ time, mark, audio, video {
 .page {
   flex: 8;
   display: none;
-  justify-content: center;
-  align-items: center;
 }
 #adopt-button {
   flex: 1;

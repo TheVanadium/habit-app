@@ -20,6 +20,15 @@ export default {
 </script>
 <template>
     <div id="pet-place">
-        <HabitPet v-for="pet in this.pets" :key="pet.id" :species="pet.species" :habit="pet.habit"></HabitPet>
+        <HabitPet v-for="pet in this.pets" :key="pet.id" :species="pet.species" :habit="pet.habit" :id="pet.id" class="habit-pet"></HabitPet>
     </div>
 </template>
+<style>
+/* center habit pets using top and left*/
+.habit-pet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+</style>
