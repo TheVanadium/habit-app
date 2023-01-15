@@ -12,7 +12,9 @@ export default {
                 src: "/src/assets/habit_" + this.species + ".jpg",
                 alt: this.species
             },
-            petIsClean: true
+            petIsClean: true,
+            moveDistance: 300,
+            moveIntervalSeconds: 5,
         }
     },
     methods: {
@@ -33,9 +35,8 @@ export default {
 
             // translate with transition only if the pet is not out of the screen, otherwise reroll and try again
             while(!petMoved) {
-                // randomly generate x and y
-                var x = Math.floor(Math.random() * 100) - 50;
-                var y = Math.floor(Math.random() * 100) - 50;
+                var x = Math.floor(Math.random() * this.moveDistance * 2) - this.moveDistance;
+                var y = Math.floor(Math.random() * this.moveDistance * 2) - this.moveDistance;
                 console.log("Move attempt: " + x + ", " + y);
                 if (currentX + x > 0 && currentX + x < window.innerWidth - 50 && currentY + y > 0 && currentY + y < window.innerHeight - 50) {
                     pet.style.transform = "translate(" + x + "px, " + y + "px)";
@@ -66,6 +67,10 @@ export default {
                     }
             }
         }
+    },
+    mounted() {
+        // passive pet movement
+        setInterval(this.petMoveRandom, Math.floor(Math.random() * 10000) + (this.moveIntervalSeconds*1000));
     }
 }
 </script>
