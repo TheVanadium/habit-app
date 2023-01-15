@@ -10,7 +10,7 @@
 </template>
 <style>
 #header {
-    background-color: #d3d3d3;
+    background-color: #ffffff;
     color: black;
     text-align: center;
     width: 100vw;

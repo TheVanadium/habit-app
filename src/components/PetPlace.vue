@@ -20,6 +20,12 @@ export default {
 </script>
 <template>
     <div id="pet-place">
+        <div id="petPlaceBackground">
+            <div id="house"></div>
+            <div id="grass"></div>
+            <div id="sidewalk"></div>
+            <div id="road"></div>
+        </div>
         <div id="pet-lineup-area">
             <HabitPet v-for="pet in this.pets" :key="pet.id" :species="pet.species" :habit="pet.habit" :id="pet.id"></HabitPet>
         </div>
@@ -36,5 +42,32 @@ export default {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+#petPlaceBackground {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+#petPlaceBackground > div {
+    height: 100%;
+}
+#house {
+    flex: 1;
+    background-color: #8B4513;
+}
+#grass {
+    flex: 6;
+    background-color: #03BF1D;
+}
+#sidewalk {
+    flex: 1;
+    background-color: #D3D3D3;
+}
+#road {
+    flex: 1;
+    background-color: #808080;
 }
 </style>
