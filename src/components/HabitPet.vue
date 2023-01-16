@@ -8,23 +8,19 @@ export default {
     },
     data () {
         return {  
-            petImageInfo : {
-                src: "/src/assets/habit_" + this.species + ".jpg",
-                alt: this.species
-            },
             petIsClean: true,
             moveDistance: 300,
             moveIntervalSeconds: 5,
+            petImageAlt: this.species,
         }
     },
     methods: {
-        togglePetGroomState() {
-            this.petIsClean = !this.petIsClean
-            if (this.petIsClean) {
-                this.petImageInfo.src = "/src/assets/habit_" + this.species + ".jpg"
-            } else {
-                this.petImageInfo.src = "/src/assets/habit_" + this.species + "_dirty.jpg"
-            }
+        randomlyGenerateMoveDistance() {
+            return Math.floor(Math.random() * this.moveDistance * 2) - this.moveDistance;
+        },
+        movePetTo(pet, x, y) {
+            pet.style.transform = "translate(" + x + "px, " + y + "px)";
+            pet.style.transition = "transform 1s";
         },
         petMoveRandom() {
             let petMoved=false;
@@ -33,14 +29,13 @@ export default {
             var currentX = rect.left;
             var currentY = rect.top;
 
-            // translate with transition only if the pet is not out of the screen, otherwise reroll and try again
             while(!petMoved) {
-                var x = Math.floor(Math.random() * this.moveDistance * 2) - this.moveDistance;
-                var y = Math.floor(Math.random() * this.moveDistance * 2) - this.moveDistance;
-                console.log("Move attempt: " + x + ", " + y);
-                if (currentX + x > 0 && currentX + x < window.innerWidth - 50 && currentY + y > 0 && currentY + y < window.innerHeight - 50) {
-                    pet.style.transform = "translate(" + x + "px, " + y + "px)";
-                    pet.style.transition = "transform 1s";
+                var x = this.randomlyGenerateMoveDistance()
+                var y = this.randomlyGenerateMoveDistance()
+
+                let petRemainsInScreen = currentX + x > 0 && currentX + x < window.innerWidth - 50 && currentY + y > 0 && currentY + y < window.innerHeight - 50;
+                if (petRemainsInScreen) {
+                    this.movePetTo(pet, x, y);
                     petMoved = true;
                 }
             }
@@ -66,10 +61,12 @@ export default {
                         sound: "sound of invalid species"
                     }
             }
+        },
+        petImageSrc() {
+            return this.petIsClean ? "/src/assets/habit_" + this.species + ".jpg" : "/src/assets/habit_" + this.species + "_dirty.jpg";
         }
     },
     mounted() {
-        // passive pet movement
         setInterval(this.petMoveRandom, Math.floor(Math.random() * 10000) + (this.moveIntervalSeconds*1000));
     }
 }
@@ -77,7 +74,7 @@ export default {
 
 <template>
     <div class="habit-pet" :id="this.id">
-        <img v-on:click="togglePetGroomState()" v-on:mouseenter="petMoveRandom()" :src="petImageInfo.src" :alt="petImageInfo.alt">
+        <img v-on:click="this.petIsClean = !this.petIsClean" v-on:mouseenter="petMoveRandom" :src="petImageSrc" :alt="petImageAlt">
     </div>
 </template>
 
