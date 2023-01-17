@@ -1,11 +1,19 @@
 <script>
-    export default {
-        name: "HabitShop",
-    }
+import ShopItem from "./ShopItem.vue";
+export default {
+    data () {
+        return {
+
+        }
+    },
+    components: {
+        ShopItem
+    },
+}
 </script>
 <template>
     <div id="shop">
-        <p>Shop</p>
+        <ShopItem item="Scarf"></ShopItem>
     </div>
 </template>
 <style>
