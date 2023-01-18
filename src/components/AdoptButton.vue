@@ -5,7 +5,6 @@ export default {
         // send click information to parent
         openAdoptMenu () {
             this.$emit("openAdoptMenu")
-            console.log("AdoptButton clicked")
         }
     }
 }

@@ -23,10 +23,6 @@ export default {
     HabitShop,
   },
   methods: {
-    toggleAdoptMenuVisibility() {
-      this.adoptMenuIsVisible = !this.adoptMenuIsVisible
-      console.log("toggleAdoptMenuVisibility")
-    },
     goToPage(page) {
       this.currentPage = page
     }
@@ -41,10 +37,10 @@ export default {
     <PetPlace class="page" v-bind:id="(this.currentPage==='Pets')?'active-page':''"></PetPlace>
     <HabitShop class="page" v-bind:id="(this.currentPage==='Shop')?'active-page':''"></HabitShop>
 
-    <AdoptButton @openAdoptMenu="toggleAdoptMenuVisibility"></AdoptButton>
+    <AdoptButton @openAdoptMenu="(this.adoptMenuIsVisible = !this.adoptMenuIsVisible)"></AdoptButton>
     <AppNavigation @goToPets="goToPage" @goToShop="goToPage"></AppNavigation>
 
-    <AdoptMenu :style="{ visibility: (adoptMenuIsVisible ? 'visible': 'hidden')}"  @closeAdoptMenu="toggleAdoptMenuVisibility"></AdoptMenu>
+    <AdoptMenu :style="{ visibility: (adoptMenuIsVisible ? 'visible': 'hidden')}"  @closeAdoptMenu="this.adoptMenuIsVisible = !this.adoptMenuIsVisible"></AdoptMenu>
   </div>
 </template>
 
