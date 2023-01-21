@@ -63,7 +63,7 @@ export default {
             }
         },
         petImageSrc() {
-            return this.petIsClean ? "/src/assets/habit_" + this.species + ".jpg" : "/src/assets/habit_" + this.species + "_dirty.jpg";
+            return this.petIsClean ? "/src/assets/pets/habit_" + this.species + ".jpg" : "/src/assets/pets/habit_" + this.species + "_dirty.jpg";
         }
     },
     mounted() {
