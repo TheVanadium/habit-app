@@ -12,6 +12,8 @@ export default {
             moveDistance: 300,
             moveIntervalSeconds: 5,
             petImageAlt: this.species,
+            petSrcClean: "/src/assets/habit_" + this.species + ".jpg",
+            petSrcDirty: "/src/assets/habit_" + this.species + "_dirty.jpg",
         }
     },
     methods: {
@@ -63,7 +65,7 @@ export default {
             }
         },
         petImageSrc() {
-            return this.petIsClean ? "/src/assets/habit_" + this.species + ".jpg" : "/src/assets/habit_" + this.species + "_dirty.jpg";
+            return this.petIsClean ? this.petSrcClean : this.petSrcDirty;
         }
     },
     mounted() {
