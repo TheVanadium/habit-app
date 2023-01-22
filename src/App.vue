@@ -1,8 +1,7 @@
 <script>
 import PetPlace from './components/PetPlace.vue';
-import AdoptButton from './components/AdoptButton.vue';
+import AdoptComponent from './components/AdoptComponent.vue';
 import AppHeader from './components/AppHeader.vue';
-import AdoptMenu from './components/AdoptMenu.vue';
 import AppNavigation from './components/AppNavigation.vue';
 import HabitShop from './components/HabitShop.vue';
 
@@ -16,9 +15,8 @@ export default {
   },
   components: {
     PetPlace,
-    AdoptButton,
     AppHeader,
-    AdoptMenu,
+    AdoptComponent,
     AppNavigation,
     HabitShop,
   },
@@ -37,10 +35,10 @@ export default {
     <PetPlace class="page" v-bind:id="(this.currentPage==='Pets')?'active-page':''"></PetPlace>
     <HabitShop class="page" v-bind:id="(this.currentPage==='Shop')?'active-page':''"></HabitShop>
 
-    <AdoptButton @openAdoptMenu="(this.adoptMenuIsVisible = !this.adoptMenuIsVisible)"></AdoptButton>
+    <AdoptComponent></AdoptComponent>
+
     <AppNavigation @goToPets="goToPage" @goToShop="goToPage"></AppNavigation>
 
-    <AdoptMenu :style="{ visibility: (adoptMenuIsVisible ? 'visible': 'hidden')}"  @closeAdoptMenu="this.adoptMenuIsVisible = !this.adoptMenuIsVisible"></AdoptMenu>
   </div>
 </template>
 
@@ -86,12 +84,6 @@ time, mark, audio, video {
 .page {
   flex: 8;
   display: none;
-}
-#adopt-button {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 #navigation {
   flex: 1;

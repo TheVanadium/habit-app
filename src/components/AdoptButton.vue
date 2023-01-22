@@ -14,3 +14,11 @@ export default {
         <button v-on:click=(openAdoptMenu)>Adopt</button>
     </div>
 </template>
+<style>
+    #adopt-button {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
