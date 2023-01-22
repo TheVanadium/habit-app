@@ -12,8 +12,8 @@ export default {
             moveDistance: 300,
             moveIntervalSeconds: 5,
             petImageAlt: this.species,
-            petSrcClean: "/src/assets/habit_" + this.species + ".jpg",
-            petSrcDirty: "/src/assets/habit_" + this.species + "_dirty.jpg",
+            petSrcClean: "/src/assets/pets/habit_" + this.species + ".jpg",
+            petSrcDirty: "/src/assets/pets/habit_" + this.species + "_dirty.jpg",
         }
     },
     methods: {
