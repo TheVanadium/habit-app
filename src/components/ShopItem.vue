@@ -25,7 +25,7 @@ export default {
         <section class="card-main-content">
             <img :alt=item>
         </section>
-        <section class="card-footer">
+        <section class="card-footer" v-on:click=(buyItem)>
             <p class="card-footer-price">1000</p>
             <img src="src\assets\coin.png" class="coin-image">
         </section>
@@ -62,5 +62,9 @@ export default {
     align-items: center;
     background-color: #F1ECEC;
     border-radius: 0 0 10px 10px;
+}
+.card-footer:hover {
+    cursor: default;
+    background-color: #E6E6E6;
 }
 </style>

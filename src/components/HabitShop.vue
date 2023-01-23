@@ -12,10 +12,42 @@ export default {
 }
 </script>
 <template>
-    <div id="shop">
-        <ShopItem item="Scarf"></ShopItem>
+    <div>
+        <div id="shop">
+            <div class="shop-row" id="shop-row-1">
+                <ShopItem item="Scarf"></ShopItem>
+                <ShopItem item="Scarf"></ShopItem>
+                <ShopItem item="Scarf"></ShopItem>
+                <ShopItem item="Scarf"></ShopItem>
+                <ShopItem item="Scarf"></ShopItem>
+                <ShopItem item="Scarf"></ShopItem>
+            </div>
+            <div class="shop-row" id="shop-row-2">
+                <ShopItem item="Scarf"></ShopItem>
+                <ShopItem item="Scarf"></ShopItem>
+                <ShopItem item="Scarf"></ShopItem>
+                <ShopItem item="Scarf"></ShopItem>
+                <ShopItem item="Scarf"></ShopItem>
+                <ShopItem item="Scarf"></ShopItem>
+            </div>
+        </div>
     </div>
 </template>
 <style>
-    
+#shop {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 5%;
+}
+.shop-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 5%;
+}
 </style>
