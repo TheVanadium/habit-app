@@ -3,13 +3,12 @@ export default {
     name: "ShopItem",
     props: {
         item: {
-            type: Object,
+            type: String,
             required: true
         }
     },
     data() {
         return {
-            item: this.item
         }
     },
     methods: {
