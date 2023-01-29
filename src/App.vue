@@ -1,6 +1,5 @@
 <script>
 import PetPlace from './components/PetPlace.vue';
-import AdoptComponent from './components/AdoptComponent.vue';
 import AppHeader from './components/AppHeader.vue';
 import AppNavigation from './components/AppNavigation.vue';
 import HabitShop from './components/HabitShop.vue';
@@ -16,7 +15,6 @@ export default {
   components: {
     PetPlace,
     AppHeader,
-    AdoptComponent,
     AppNavigation,
     HabitShop,
   },
@@ -34,8 +32,6 @@ export default {
     
     <PetPlace class="page" v-bind:id="(this.currentPage==='Pets')?'active-page':''"></PetPlace>
     <HabitShop class="page" v-bind:id="(this.currentPage==='Shop')?'active-page':''"></HabitShop>
-
-    <AdoptComponent></AdoptComponent>
 
     <AppNavigation @goToPets="goToPage" @goToShop="goToPage"></AppNavigation>
 

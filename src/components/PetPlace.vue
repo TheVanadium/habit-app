@@ -1,6 +1,6 @@
 <script>
 import HabitPet from './HabitPet.vue'
-
+import AdoptComponent from './AdoptComponent.vue'
 export default {
     name: "PetPlace",
     data() {
@@ -14,7 +14,8 @@ export default {
         };
     },
     components: {
-        HabitPet
+        HabitPet,
+        AdoptComponent,
     }
 }
 </script>
@@ -29,6 +30,7 @@ export default {
         <div id="pet-lineup-area">
             <HabitPet v-for="pet in this.pets" :key="pet.id" :species="pet.species" :habit="pet.habit" :id="pet.id"></HabitPet>
         </div>
+        <AdoptComponent></AdoptComponent>
     </div>
 </template>
 <style>
@@ -69,5 +71,15 @@ export default {
 #road {
     flex: 1;
     background-color: #808080;
+}
+#adopt-component {
+    position: absolute;
+    bottom: 13%;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 </style>
