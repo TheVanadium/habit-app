@@ -16,7 +16,7 @@ export default {
 }
 </script>
 <template>
-    <div>
+    <div id="adopt-component">
         <AdoptButton @openAdoptMenu="(this.adoptMenuIsVisible = !this.adoptMenuIsVisible)"></AdoptButton>
         <AdoptMenu :style="{ visibility: (adoptMenuIsVisible ? 'visible': 'hidden')}"  @closeAdoptMenu="this.adoptMenuIsVisible = !this.adoptMenuIsVisible"></AdoptMenu>
     </div>
