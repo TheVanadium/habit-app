@@ -1,5 +1,6 @@
 <script>
 import ShopItem from "./ShopItem.vue";
+import CoinDisplay from "./CoinDisplay.vue";
 export default {
     data () {
         return {
@@ -7,7 +8,8 @@ export default {
         }
     },
     components: {
-        ShopItem
+        ShopItem,
+        CoinDisplay
     },
 }
 </script>
@@ -30,6 +32,7 @@ export default {
                 <ShopItem item="Scarf"></ShopItem>
                 <ShopItem item="Scarf"></ShopItem>
             </div>
+            <CoinDisplay></CoinDisplay>
         </div>
     </div>
 </template>
@@ -37,10 +40,10 @@ export default {
 #shop {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
     margin: 0 5% 0 5%;
+    position: relative;
 }
 .shop-row {
     display: flex;
@@ -49,5 +52,11 @@ export default {
     align-items: center;
     width: 100%;
     margin: 5%;
+}
+/* absolutely position in the bottom right corner, 5% away from it */
+#coin-display {
+    position: absolute;
+    bottom: 5rem;
+    right: 5rem;
 }
 </style>
