@@ -76,7 +76,7 @@ export default {
 
 <template>
     <div class="habit-pet" :id="this.id">
-        <img v-on:click="this.petIsClean = !this.petIsClean" v-on:mouseenter="petMoveRandom" :src="petImageSrc" :alt="petImageAlt">
+        <img v-on:click="this.petIsClean = !this.petIsClean" :src="petImageSrc" :alt="petImageAlt">
     </div>
 </template>
 
