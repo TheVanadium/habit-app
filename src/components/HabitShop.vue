@@ -2,42 +2,48 @@
 import ShopItem from "./ShopItem.vue";
 import CoinDisplay from "./CoinDisplay.vue";
 export default {
-    data () {
+    data() {
         return {
-
-        }
+            coinUsed: 0,
+        };
+    },
+    methods: {
+        itemBought() {
+            this.coinUsed -= 1000;
+        },
     },
     components: {
         ShopItem,
-        CoinDisplay
+        CoinDisplay,
     },
-}
+};
 </script>
 <template>
     <div>
         <div id="shop">
             <div class="shop-row" id="shop-row-1">
-                <ShopItem item="Scarf"></ShopItem>
-                <ShopItem item="Scarf"></ShopItem>
-                <ShopItem item="Scarf"></ShopItem>
-                <ShopItem item="Scarf"></ShopItem>
-                <ShopItem item="Scarf"></ShopItem>
-                <ShopItem item="Scarf"></ShopItem>
+                <ShopItem @buy-item="itemBought" item="Scarf 1"></ShopItem>
+                <ShopItem @buy-item="itemBought" item="Scarf 2"></ShopItem>
+                <ShopItem @buy-item="itemBought" item="Scarf"></ShopItem>
+                <ShopItem @buy-item="itemBought" item="Scarf"></ShopItem>
+                <ShopItem @buy-item="itemBought" item="Scarf"></ShopItem>
+                <ShopItem @buy-item="itemBought" item="Scarf"></ShopItem>
             </div>
             <div class="shop-row" id="shop-row-2">
-                <ShopItem item="Scarf"></ShopItem>
-                <ShopItem item="Scarf"></ShopItem>
-                <ShopItem item="Scarf"></ShopItem>
-                <ShopItem item="Scarf"></ShopItem>
-                <ShopItem item="Scarf"></ShopItem>
-                <ShopItem item="Scarf"></ShopItem>
+                <ShopItem @buy-item="itemBought" item="Scarf"></ShopItem>
+                <ShopItem @buy-item="itemBought" item="Scarf"></ShopItem>
+                <ShopItem @buy-item="itemBought" item="Scarf"></ShopItem>
+                <ShopItem @buy-item="itemBought" item="Scarf"></ShopItem>
+                <ShopItem @buy-item="itemBought" item="Scarf"></ShopItem>
+                <ShopItem @buy-item="itemBought" item="Scarf"></ShopItem>
             </div>
-            <CoinDisplay></CoinDisplay>
+            <CoinDisplay :coinUsed="coinUsed"></CoinDisplay>
         </div>
     </div>
 </template>
 <style>
 #shop {
+    user-select: none;
     display: flex;
     flex-direction: column;
     align-items: center;

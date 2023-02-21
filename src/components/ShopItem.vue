@@ -5,7 +5,7 @@ export default {
         item: {
             type: String,
             required: true
-        }
+        },
     },
     data() {
         return {
@@ -13,20 +13,19 @@ export default {
     },
     methods: {
         buyItem() {
-            this.$emit('buy-item', this.item);
+            this.$emit('buy-item');
         }
     },
-    
 }
 </script>
 <template>
     <div class="item-card">
         <section class="card-main-content">
-            <img :alt=item>
+            <img :alt="item" />
         </section>
-        <section class="card-footer" v-on:click=(buyItem)>
+        <section class="card-footer" v-on:click="buyItem">
             <p class="card-footer-price">1000</p>
-            <img src="src\assets\coin.png" class="coin-image">
+            <img src="src\assets\coin.png" class="coin-image" />
         </section>
     </div>
 </template>
@@ -50,7 +49,7 @@ export default {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: #D9D9D9;
+    background-color: #d9d9d9;
     border-radius: 10px 10px 0 0;
 }
 .card-footer {
@@ -59,11 +58,12 @@ export default {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: #F1ECEC;
+    background-color: #f1ecec;
     border-radius: 0 0 10px 10px;
 }
 .card-footer:hover {
-    cursor: default;
-    background-color: #E6E6E6;
+    user-select: none;
+    cursor: pointer;
+    background-color: #e6e6e6;
 }
 </style>
