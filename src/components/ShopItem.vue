@@ -49,7 +49,7 @@ export default {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: #d9d9d9;
+    background-color: #D9D9D9;
     border-radius: 10px 10px 0 0;
 }
 .card-footer {
@@ -58,12 +58,12 @@ export default {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: #f1ecec;
+    background-color: #F1ECEC;
     border-radius: 0 0 10px 10px;
 }
 .card-footer:hover {
     user-select: none;
     cursor: pointer;
-    background-color: #e6e6e6;
+    background-color: #E6E6E6;
 }
 </style>
