@@ -2,26 +2,30 @@
 export default {
     data() {
         return {
-            coins: 0,
+
         };
     },
-}
+    methods: {
+    },
+    props: ["coins"],
+};
 </script>
 <template>
     <div id="coin-display">
         <section id="coin-amount">
-            <h1>{{this.coins}}</h1>
+            <h1>{{ coins }}</h1>
         </section>
         <section id="coin-icon">
-            <img src="../assets/coin.png" alt="coin">
+            <img src="../assets/coin.png" alt="coin" />
         </section>
         <section id="get-coins">
-            <button @click="this.coins += 1">+</button>
+            <button @click="this.$emit('coinAdd')">+</button>
         </section>
     </div>
 </template>
 <style>
 #coin-display {
+    user-select: none;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -43,6 +47,7 @@ export default {
     border-radius: 10px;
 }
 #coin-icon {
+    user-select: none;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -52,6 +57,7 @@ export default {
     border-radius: 10px;
 }
 #coin-icon > img {
+    user-select: none;
     width: 100%;
     height: 100%;
 }
