@@ -12,7 +12,7 @@ export default {
             this.coins -= 1000;
         },
         coinAdd() {
-            this.coins += 1000;
+            this.coins += 1;
         }
     },
     components: {
