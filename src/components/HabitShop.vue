@@ -19,7 +19,7 @@ export default {
         ShopItem,
         CoinDisplay,
     },
-};
+}
 </script>
 <template>
     <div>
