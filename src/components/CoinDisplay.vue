@@ -2,24 +2,24 @@
 export default {
     data() {
         return {
-            coins: 0,
+
         };
     },
     methods: {
     },
-    props: ["coinUsed"],
+    props: ["coins"],
 };
 </script>
 <template>
     <div id="coin-display">
         <section id="coin-amount">
-            <h1>{{ coinUsed + coins }}</h1>
+            <h1>{{ coins }}</h1>
         </section>
         <section id="coin-icon">
             <img src="../assets/coin.png" alt="coin" />
         </section>
         <section id="get-coins">
-            <button @click="coins += 1000">+</button>
+            <button @click="this.$emit('coinAdd')">+</button>
         </section>
     </div>
 </template>

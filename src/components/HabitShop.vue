@@ -4,13 +4,16 @@ import CoinDisplay from "./CoinDisplay.vue";
 export default {
     data() {
         return {
-            coinUsed: 0,
+            coins: 0,
         };
     },
     methods: {
         itemBought() {
-            this.coinUsed -= 1000;
+            this.coins -= 1000;
         },
+        coinAdd() {
+            this.coins += 1000;
+        }
     },
     components: {
         ShopItem,
@@ -37,7 +40,7 @@ export default {
                 <ShopItem @buy-item="itemBought" item="Scarf"></ShopItem>
                 <ShopItem @buy-item="itemBought" item="Scarf"></ShopItem>
             </div>
-            <CoinDisplay :coinUsed="coinUsed"></CoinDisplay>
+            <CoinDisplay :coins="coins" @coinAdd="coinAdd"></CoinDisplay>
         </div>
     </div>
 </template>
